@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirect</title>
+  </head>
+  <body>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const authCode = urlParams.get("code");
+
+      if (authCode){
+        window.location.replace(
+          `myapp://oauth/callback?code=${authCode}`
+        )
+      } else {
+        window.location.replace(
+          "https://egattio.github.io/notion-web/redirects/fallback.html"
+        );
+      }
+    </script>
+  </body>
+</html>
